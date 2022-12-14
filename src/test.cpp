@@ -3,11 +3,13 @@
 
 String test::GetData()
 {
-    if(Serial.available()){
-    data = Serial.readString();
+    while (Serial.available())
+    {
+        data = Serial.readString();
     }
     return data;
 }
-void test::SendData(String k ){
+void test::SendData(String k)
+{
     Serial.println(k);
 }

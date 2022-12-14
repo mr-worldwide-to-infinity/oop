@@ -6,8 +6,11 @@ class sservo
 {
 private:
 int graden=0;
+int aantal=11;
+int open=90;
+int dicht =0;
 public:
-void setting(int a, test ar );
+void setting(String b);
 void begin();
 
 };
