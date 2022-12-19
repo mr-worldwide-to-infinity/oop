@@ -46,46 +46,20 @@ void sservo::setting(String b)
         }
 
     }
-    for (int i = 0; i < ; i++)
+    for (int i = 0; i < str_length; i++)
     {
-        /* code */
+        kast[arr[i]].write(open);
+        
+    }
+    echtgewachtetijd=millis();
+    while (echtgewachtetijd<wachttijd)
+    {
+    }
+    for (int i = 0; i < 11; i++)
+    {
+        kast[i].write(dicht);
     }
     
     
 }
-void convertStrtoArr(String str)
-{
-    // get length of string str
-    int str_length = str.length();
 
-    // create an array with size as string
-    // length and initialize with 0
-    int arr[str_length] = {0};
-
-    int j = 0, i, sum = 0;
-
-    // Traverse the string
-    for (i = 0; str[i] != '&#092;&#048;'; i++)
-    {
-
-        // if str[i] is ', ' then split
-        if (str[i] == ',')
-            continue;
-        if (str[i] == ' ')
-        {
-            // Increment j to point to next
-            // array location
-            j++;
-        }
-        else
-        {
-
-            // subtract str[i] by 48 to convert it to int
-            // Generate number by multiplying 10 and adding
-            // (int)(str[i])
-            arr[j] = arr[j] * 10 + (str[i] - 48);
-        }
-    }
-}
-
-// Driver code

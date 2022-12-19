@@ -14,5 +14,7 @@ void setup()
 
 void loop()
 {
-    locker.setting("1,4,8,11");
+    if(Serial.available()){
+    locker.setting(arduinocom.GetData());
+    }
 }
