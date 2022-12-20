@@ -49,6 +49,7 @@ void sservo::setting(String b)
     for (int i = 0; i < str_length; i++)
     {
         kast[arr[i]].write(open);
+        Serial.print(arr[i]);
         
     }
     echtgewachtetijd=millis();
