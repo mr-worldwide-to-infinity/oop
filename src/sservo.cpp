@@ -15,42 +15,22 @@ void sservo::begin()
 }
 void sservo::setting(String b)
 {
-    int str_length = b.length();
+unsigned int data_num = 0;
+int data[21];
+// loop as long as a comma is found in the string
+while(b.indexOf(",")!=-1){
+  // take the substring from the start to the first occurence of a comma, convert it to int and save it in the array
+  data[ data_num ] = b.substring(0,b.indexOf(",")).toInt();
+  data_num++; // increment our data counter
+  //cut the data string after the first occurence of a comma
+ b = b.substring(b.indexOf(",")+1);
+}
+// get the last value out of the string, which as no more commas in it
+data[ data_num ] = b.toInt();
 
-    // create an array with size as string
-    // length and initialize with 0
-    int arr[str_length] = {0};
-
-    int j = 0, i, sum = 0;
-
-    // Traverse the string
-    for (i = 0; b[i] != '&#092;&#048;'; i++)
+    for (int i = 0; i <=data_num; i++)
     {
-
-        // if str[i] is ', ' then split
-        if (b[i] == ',')
-            continue;
-        if (b[i] == ' ')
-        {
-            // Increment j to point to next
-            // array location
-            j++;
-        }
-        else
-        {
-
-            // subtract str[i] by 48 to convert it to int
-            // Generate number by multiplying 10 and adding
-            // (int)(str[i])
-            arr[j] = arr[j] * 10 + (b[i] - 48);
-        }
-
-    }
-    for (int i = 0; i < str_length; i++)
-    {
-        kast[arr[i]].write(open);
-        Serial.print(arr[i]);
-        
+        kast[data[i]].write(open);
     }
     echtgewachtetijd=millis();
     while (echtgewachtetijd<wachttijd)
