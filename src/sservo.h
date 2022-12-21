@@ -6,7 +6,7 @@ class sservo
 {
 private:
 int graden=0;
-int aantal=14;
+int aantal=15;
 int open=90;
 int dicht =0;
 int wachttijd=500;
