@@ -3,10 +3,7 @@
 
 String test::GetData()
 {
-    while (Serial.available())
-    {
-        data = Serial.readString();
-    }
+    data = Serial.readString();
     return data;
 }
 void test::SendData(String k)

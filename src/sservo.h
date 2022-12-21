@@ -6,11 +6,11 @@ class sservo
 {
 private:
 int graden=0;
-int aantal=11;
+int aantal=14;
 int open=90;
 int dicht =0;
 int wachttijd=500;
-int echtgewachtetijd;
+float echtgewachtetijd;
 public:
 void setting(String b);
 void begin();

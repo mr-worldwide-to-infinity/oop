@@ -15,32 +15,31 @@ void sservo::begin()
 }
 void sservo::setting(String b)
 {
-unsigned int data_num = 0;
-int data[21];
-// loop as long as a comma is found in the string
-while(b.indexOf(",")!=-1){
-  // take the substring from the start to the first occurence of a comma, convert it to int and save it in the array
-  data[ data_num ] = b.substring(0,b.indexOf(",")).toInt();
-  data_num++; // increment our data counter
-  //cut the data string after the first occurence of a comma
- b = b.substring(b.indexOf(",")+1);
-}
-// get the last value out of the string, which as no more commas in it
-data[ data_num ] = b.toInt();
+    unsigned int data_num = 0;
+    int data[21];
+    // loop as long as a comma is found in the string
+    while (b.indexOf(",") != -1)
+    {
+        // take the substring from the start to the first occurence of a comma, convert it to int and save it in the array
+        data[data_num] = b.substring(0, b.indexOf(",")).toInt();
+        data_num++; // increment our data counter
+                    // cut the data string after the first occurence of a comma
+        b = b.substring(b.indexOf(",") + 1);
+    }
+    // get the last value out of the string, which as no more commas in it
+    data[data_num] = b.toInt();
 
-    for (int i = 0; i <=data_num; i++)
+    for (int i = 0; i <= data_num; i++)
     {
         kast[data[i]].write(open);
     }
-    echtgewachtetijd=millis();
-    while (echtgewachtetijd<wachttijd)
+    echtgewachtetijd = millis();
+    while (millis()-echtgewachtetijd < wachttijd)
     {
     }
     for (int i = 0; i < 11; i++)
     {
         kast[i].write(dicht);
     }
-    
-    
+ 
 }
-

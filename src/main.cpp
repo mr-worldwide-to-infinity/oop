@@ -5,7 +5,9 @@
 test arduinocom;
 String received;
 sservo locker;
-String k = "kpldfji";
+String oldreceived;
+
+
 void setup()
 {
     Serial.begin(9600);
@@ -14,7 +16,9 @@ void setup()
 
 void loop()
 {
-    if(Serial.available()){
-    locker.setting(arduinocom.GetData());
+    received=arduinocom.GetData();
+    if(received!=oldreceived){
+    locker.setting(received);
     }
+     oldreceived=received;
 }
