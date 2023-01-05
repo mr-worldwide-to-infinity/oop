@@ -18,7 +18,9 @@ void loop()
 {
     received=arduinocom.GetData();
     if(received!=oldreceived){
+    received=("1,2,3");
     locker.setting(received);
+    received="";
     }
-     oldreceived=received;
+    oldreceived=received;
 }
