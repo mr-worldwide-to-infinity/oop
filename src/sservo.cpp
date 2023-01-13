@@ -31,7 +31,7 @@ void sservo::setting(String b)
 
     for (int i = 0; i <= data_num; i++)
     {
-        kast[data[i]].write(open);
+        kast[data[i]-1].write(open);
     }
     echtgewachtetijd = millis();
     while (millis()-echtgewachtetijd < wachttijd)
