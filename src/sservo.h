@@ -12,7 +12,7 @@ int dicht =180;
 int wachttijd=1500;
 float echtgewachtetijd;
 public:
-void setting(String b);
+void setting(String message);
 void begin();
 
 };

@@ -13,21 +13,21 @@ void sservo::begin()
         kastcount++;
     }
 }
-void sservo::setting(String b)
+void sservo::setting(String message)
 {
     unsigned int data_num = 0;
     int data[21];
     // loop as long as a comma is found in the string
-    while (b.indexOf(",") != -1)
+    while (message.indexOf(",") != -1)
     {
         // take the substring from the start to the first occurence of a comma, convert it to int and save it in the array
-        data[data_num] = b.substring(0, b.indexOf(",")).toInt();
+        data[data_num] = message.substring(0, message.indexOf(",")).toInt();
         data_num++; // increment our data counter
                     // cut the data string after the first occurence of a comma
-        b = b.substring(b.indexOf(",") + 1);
+        message = message.substring(message.indexOf(",") + 1);
     }
     // get the last value out of the string, which as no more commas in it
-    data[data_num] = b.toInt();
+    data[data_num] = message.toInt();
 
     for (int i = 0; i <= data_num; i++)
     {

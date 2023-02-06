@@ -18,8 +18,8 @@ void loop()
 {
     received=arduinocom.GetData();
     if(received!=oldreceived){
-    locker.setting(received);
-    received="";
+      locker.setting(received);
+      received="";
     }
     oldreceived=received;
 }
